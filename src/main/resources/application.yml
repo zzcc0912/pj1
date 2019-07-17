@@ -1,0 +1,14 @@
+#端口，项目上下文根
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encding: UTF-8
+    cache: false
+    content-type: text/html
+  resources:
+    static-locations: classpath:/static/
