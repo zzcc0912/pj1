@@ -12,3 +12,11 @@ spring:
     content-type: text/html
   resources:
     static-locations: classpath:/static/
+
+#热部署生效
+devtools:
+  restart:
+    enabled: true
+
+photo:
+  path: C:/Users/zhang/Desktop/work/images/

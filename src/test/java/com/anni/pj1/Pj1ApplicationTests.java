@@ -1,6 +1,7 @@
 package com.anni.pj1;
 
-import com.anni.pj1.domain.PhotoEntity;
+import com.anni.pj1.Properties.ImagesProperties;
+import com.anni.pj1.Repository.PhotoRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class Pj1ApplicationTests {
 
-	@Autowired
-	private PhotoEntity pe;
+    @Autowired
+    private PhotoRepository pr;
+
+    @Autowired
+    private ImagesProperties ip;
 
 	@Test
 	public void contextLoads() {
-		pe.setAddress("/abc/esef");
-		System.out.println(pe.getAddress());
+
+
+        pr.getPhototListByPath(ip.getPath() + "2020/" + "6/", true);
 
 	}
 
