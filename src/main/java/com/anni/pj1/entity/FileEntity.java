@@ -1,5 +1,6 @@
 package com.anni.pj1.entity;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,7 +18,7 @@ public class FileEntity {
         this.fileName = fileName;
     }
 
-    public String getpath() {
+    public String getPath() {
         return path;
     }
 

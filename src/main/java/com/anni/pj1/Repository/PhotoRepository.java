@@ -14,15 +14,12 @@ import java.util.Collections;
 @Repository
 public class PhotoRepository {
 
-    @Autowired
-    private FileEntity fe;
-
     public ArrayList<FileEntity> getPhototListByPath(String path, boolean isReverse){
         ArrayList<FileEntity> fileDirectoryList = new ArrayList<FileEntity>();
         File file = new File(path);
         File[] fs = file.listFiles();
         for(File f:fs){
-//            fe = new FileEntity();
+            FileEntity fe = new FileEntity();
 
             fe.setFileName(f.getName());
             fe.setPath(f.getPath());

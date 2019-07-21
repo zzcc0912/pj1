@@ -26,12 +26,7 @@ public class HelloController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index");
 
-        FileEntity pe = new FileEntity();
-//        pe.setAddress("123");
-//        pe.setPhotoName("phtoname");
-        ArrayList al = new ArrayList<>();
-        al.add(pe);
-        mv.addObject("yearList", al);
+        mv.addObject("yearList", ps.doGetList(ip.getPath(),true));
         return mv;
 
     }

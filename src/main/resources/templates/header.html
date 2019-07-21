@@ -33,9 +33,9 @@
                         <a class="nav-link" href="#0" data-no="5">Keep in touch</a>
                     </li>
                 </ul>
-                <tr th:each="year : ${yearList}">
-                        <td th:text="${year.photoName}"></td>
-                        <td th:text="${year.address}"></td>
+                <tr th:each="year:${yearList}">
+                        <td th:text="${year.fileName}"></td>
+                        <td th:text="${year.path}"></td>
                      </tr>
             </div>
         </div>
