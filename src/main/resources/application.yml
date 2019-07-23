@@ -19,4 +19,4 @@ devtools:
     enabled: true
 
 photo:
-  path: C:/Users/zhang/Desktop/work/images/
+  path: ./src/main/resources/static/images/

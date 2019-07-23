@@ -1,6 +1,5 @@
 package com.anni.pj1.entity;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,6 +22,7 @@ public class FileEntity {
     }
 
     public void setPath(String path) {
-        this.path = path;
+        String newPath = path.split("static")[1];
+        this.path = newPath;
     }
 }

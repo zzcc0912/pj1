@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class HelloController {
@@ -26,7 +26,11 @@ public class HelloController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index");
 
-        mv.addObject("yearList", ps.doGetList(ip.getPath(),true));
+        List<FileEntity> yearList = ps.doGetList(ip.getPath(),true);
+        mv.addObject("yearList",yearList);
+        String year = yearList.get(0).getFileName();
+        List<Map> pagePhotoListMap = ps.doGetPagePhotoList(ip.getPath(), year,false);
+        mv.addObject("pagePhotoListMap",pagePhotoListMap);
         return mv;
 
     }

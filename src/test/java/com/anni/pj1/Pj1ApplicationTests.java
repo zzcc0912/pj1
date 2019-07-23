@@ -22,7 +22,7 @@ public class Pj1ApplicationTests {
 	public void contextLoads() {
 
 
-        pr.getPhototListByPath(ip.getPath(), true);
+        pr.getPhototListByPath(ip.getPath(), false);
 
 	}
 

@@ -17,7 +17,7 @@
             </button>
             <div class="collapse navbar-toggleable-md text-xs-center text-uppercase tm-navbar" id="tmNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item active selected">
+                    <!--<li class="nav-item active selected">
                         <a class="nav-link" href="#0" data-no="1">Multi OOsne <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
@@ -32,11 +32,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#0" data-no="5">Keep in touch</a>
                     </li>
+                    -->
+                    <li  th:each="year,yearStat:${yearList}" th:class="${yearStat.first}?'nav-item active selected':'nav-item'">
+                        <a class="nav-link" href="#0" th:data-no="${yearStat.count}" th:text="${year.fileName}"></a>
+                    </li>
                 </ul>
-                <tr th:each="year:${yearList}">
-                        <td th:text="${year.fileName}"></td>
-                        <td th:text="${year.path}"></td>
-                     </tr>
             </div>
         </div>
 

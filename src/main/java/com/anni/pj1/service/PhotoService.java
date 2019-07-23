@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 @Service
 public class PhotoService {
@@ -15,5 +16,9 @@ public class PhotoService {
 
     public ArrayList<FileEntity> doGetList(String path, boolean isReverse){
         return pr.getPhototListByPath(path, isReverse);
+    }
+
+    public ArrayList<Map> doGetPagePhotoList(String path, String year, boolean isReverse) {
+        return pr.getPagePhototListByYear(path, year, isReverse);
     }
 }
