@@ -9,7 +9,6 @@ spring:
     mode: HTML5
     encding: UTF-8
     cache: false
-    content-type: text/html
   resources:
     static-locations: classpath:/static/
 

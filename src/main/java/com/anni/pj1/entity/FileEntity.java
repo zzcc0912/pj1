@@ -9,6 +9,10 @@ public class FileEntity {
 
     private String path;
 
+    private String year;
+
+    private String month;
+
     public String getFileName() {
         return fileName;
     }
@@ -19,6 +23,22 @@ public class FileEntity {
 
     public String getPath() {
         return path;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     public void setPath(String path) {

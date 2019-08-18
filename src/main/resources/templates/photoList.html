@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>页头</title>
+
 </head>
 <body>
+<!--
 <div class="grid-item" th:fragment="photoList" th:each="pagePhotoList,pagePhotoListStat:${pagePhotoListMap}">
     <figure class="effect-bubba">
         <img th:each="entry : ${pagePhotoList}" th:src="${entry.value.path}" alt="Image" class="img-fluid tm-img">
         <figcaption>
-            <h2 class="tm-figure-title">Image <span>One</span></h2>
+            <h2 class="tm-figure-title">Imagess <span>One</span></h2>
             <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <a th:each="entry : ${pagePhotoList}" th:href="${entry.value.path}">View more</a>
+            <div id="app">
+            <a-tag></a-tag>
+            </div>
+        </figcaption>
+    </figure>
+</div>-->
+
+<div class="grid-item" id="app">
+    <figure class="effect-bubba">
+        <img src="{{ item.path }}" alt="Image" class="img-fluid tm-img">
+        <figcaption>
+            <h2 class="tm-figure-title">Imagess <span>One</span></h2>
+            <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="{{ item.path }}">View more</a>
         </figcaption>
     </figure>
 </div>
-</div>
-</body>
+
 </html>

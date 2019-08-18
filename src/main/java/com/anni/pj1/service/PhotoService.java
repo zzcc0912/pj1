@@ -18,7 +18,7 @@ public class PhotoService {
         return pr.getPhototListByPath(path, isReverse);
     }
 
-    public ArrayList<Map> doGetPagePhotoList(String path, String year, boolean isReverse) {
+    public ArrayList<FileEntity> doGetPagePhotoList(String path, String year, boolean isReverse) {
         return pr.getPagePhototListByYear(path, year, isReverse);
     }
 }

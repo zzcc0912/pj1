@@ -20,19 +20,21 @@ public class PhotoRepository {
         ArrayList<FileEntity> fileDirectoryList = new ArrayList<FileEntity>();
         File file = new File(path);
         File[] fs = file.listFiles();
-        for(File f:fs){
+            for(File f:fs){
             FileEntity fe = new FileEntity();
 
-            fe.setFileName(f.getName());
-            fe.setPath(f.getPath());
-            fileDirectoryList.add(fe);
+            if(f.getName().length() == 4){
+                fe.setFileName(f.getName());
+                fe.setPath(f.getPath());
+                fileDirectoryList.add(fe);
+            }
         }
         if(isReverse) Collections.reverse(fileDirectoryList);
         return fileDirectoryList;
     }
 
-    public ArrayList<Map> getPagePhototListByYear(String path, String year, boolean isReverse){
-        ArrayList<Map> firstPagePhototList = new ArrayList<Map>();
+    public ArrayList<FileEntity> getPagePhototListByYear(String path, String year, boolean isReverse){
+        ArrayList<FileEntity> firstPagePhototList = new ArrayList<FileEntity>();
         File file = new File(path + year + "/");
         File[] fs = file.listFiles();
         for(File f:fs){
@@ -44,11 +46,18 @@ public class PhotoRepository {
                 for(File fssss:fss){
                     FileEntity fe = new FileEntity();
 
-                    fe.setFileName(fssss.getName());
-                    fe.setPath(fssss.getPath());
-                    photoMap.put(month, fe);
-                    firstPagePhototList.add(photoMap);
-                    break;
+                    String fileName = fssss.getName();
+                    if(fileName.contains("jpg") || fileName.contains("jpeg")
+                            || fileName.contains("png")
+                    ){
+                        fe.setFileName(fssss.getName());
+                        fe.setPath(fssss.getPath());
+                        fe.setMonth(month);
+                        fe.setYear(year);
+                        firstPagePhototList.add(fe);
+                        break;
+                    }
+
                 }
             }
         }

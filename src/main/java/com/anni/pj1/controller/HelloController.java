@@ -20,18 +20,19 @@ public class HelloController {
     @Autowired
     private ImagesProperties ip;
 
-    @RequestMapping(value = "/test",method = {RequestMethod.GET})
-    public ModelAndView index() {
+    @RequestMapping(value = "/getPhotoList",method = {RequestMethod.GET})
+    public List<FileEntity> getPhotoList() {
         System.out.println("HelloController start....");
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
 
-        List<FileEntity> yearList = ps.doGetList(ip.getPath(),true);
-        mv.addObject("yearList",yearList);
+        List<FileEntity> yearList = ps.doGetList(ip.getPath(),false);
         String year = yearList.get(0).getFileName();
-        List<Map> pagePhotoListMap = ps.doGetPagePhotoList(ip.getPath(), year,false);
-        mv.addObject("pagePhotoListMap",pagePhotoListMap);
-        return mv;
+        List<FileEntity> firstPagePhotoListMap = ps.doGetPagePhotoList(ip.getPath(), year,false);
+        return firstPagePhotoListMap;
+    }
 
+    @RequestMapping(value = "/getYearList",method = {RequestMethod.GET})
+    public List<FileEntity> getYearList(){
+        List<FileEntity> yearList = ps.doGetList(ip.getPath(),true);
+        return yearList;
     }
 }
