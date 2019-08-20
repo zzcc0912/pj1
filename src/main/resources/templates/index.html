@@ -19,7 +19,7 @@
     <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
     <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
     <link rel="stylesheet" th:href="@{/css/tooplate-style.css}">
-
+    <script src="js/jquery-1.11.3.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -30,11 +30,15 @@
 </head>
 
     <body>
+    <div id="myapp">
+        <main-component></main-component>
+    </div>
+
         
         <!-- Content -->
         <div class="cd-hero">
 
-            <div th:replace="~{header::header}"></div>
+            <!-- <div th:replace="~{header::header}"></div> -->
 
             <ul class="cd-hero-slider">
 
@@ -589,62 +593,11 @@
                     
         </div> <!-- .cd-hero -->
     </body>
-<script src="js/jquery-1.11.3.min.js"></script>
+
 <script src="js/vue.js"></script>
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            //请求方式
-            type : "get",
-            //请求的媒体类型
-            contentType: "application/json;charset=UTF-8",
-            //请求地址
-            url : "getPhotoList",
-            //数据，json字符串
-            data : JSON,
-            //请求成功
-            success : function(result) {
-                console.log(result);
-                //定义Vue组件
-                var vum=new Vue({
-                    el: "#firstPageImgList",
-                    data: {
-                        message: "lalala",
-                        imgDataList: result,
-                        monthAllImgList: ""
-                    },
-                    methods: {
-                        getImgUrl: function (imgUrl) {
-                            return imgUrl;
-                        },
-                        getMonthAllImgList: function(year,month){
-                            console.log("年" + year + "，月" + month);
-                            $.ajax({
-                                type : "get",
-                                contentType: "application/json;charset=UTF-8",
-                                url : "getPhotoList",
-                                data : JSON,
-                                //请求成功
-                                success : function(result) {
-                                    console.log(result);
-                                    vum.monthAllImgList = result;
+<script src='js/component/hearList.js'></script>
+<script src="js/component/main.js"></script>
 
-                                }
-                            })
-                        }
-                    }
-                })
-            },
-            //请求失败，包含具体的错误信息
-            error : function(e){
-                console.log(e.status);
-                console.log(e.responseText);
-            }
-        });
-    });
-
-
-</script>
         
 
         <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->
