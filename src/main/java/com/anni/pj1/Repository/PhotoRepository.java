@@ -64,4 +64,26 @@ public class PhotoRepository {
         if(isReverse) Collections.reverse(firstPagePhototList);
         return firstPagePhototList;
     }
+
+    public ArrayList<FileEntity> getPagePhototListByYearAndMonth(String path, String year, String month, boolean isReverse){
+        ArrayList<FileEntity> monthPhototList = new ArrayList<FileEntity>();
+        File file = new File(path + year + "/" + month + "/");
+        File[] fs = file.listFiles();
+        for(File f:fs){
+            FileEntity fe = new FileEntity();
+
+            String fileName = f.getName();
+            if(fileName.contains("jpg") || fileName.contains("jpeg")
+                    || fileName.contains("png")
+            ){
+                fe.setFileName(f.getName());
+                fe.setPath(f.getPath());
+                fe.setMonth(month);
+                fe.setYear(year);
+                monthPhototList.add(fe);
+            }
+        }
+        if(isReverse) Collections.reverse(monthPhototList);
+        return monthPhototList;
+    }
 }
